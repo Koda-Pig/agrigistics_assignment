@@ -1,12 +1,13 @@
 <div class="payroll-dashboard">
   <!-- Left Navigation Panel -->
   <nav class="navigation-panel">
-    <div class="logo">
-      <div class="logo-icon">
-        <!-- Simple logo placeholder - we'll style this to match the design -->
-        <span>🌾</span>
-      </div>
-    </div>
+    <img
+      class="logo"
+      src="/agri-logo.svg"
+      alt="I'm a logo woohoo"
+      width="40"
+      height="40"
+    />
     <ul class="nav-items">
       @for (item of navigationItems(); track item.id) {
         <li class="nav-item" [class.active]="item.active">

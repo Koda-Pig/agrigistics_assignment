@@ -1,7 +1,6 @@
 // Payroll Dashboard Styles
 .payroll-dashboard {
   display: flex;
-  min-height: 100vh;
   font-family:
     'Inter',
     -apple-system,
@@ -9,36 +8,23 @@
     'Segoe UI',
     Roboto,
     sans-serif;
-  background-color: #f8fafc;
+  // background-color: #f8fafc;
 }
 
 // Left Navigation Panel
 .navigation-panel {
-  width: 280px;
-  background-color: #1e40af; // Dark blue
-  color: white;
-  display: flex;
-  flex-direction: column;
+  background-color: white;
+  color: var(--gray-600);
   padding: 1.5rem 0;
 
   .logo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-
-    .logo-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #10b981, #3b82f6);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-    }
+    margin-inline: auto;
+    margin-block: 24px;
+    display: block;
   }
 
   .nav-items {
+    border-top: 1px solid var(--gray-100);
     list-style: none;
     padding: 0;
     margin: 0;
