@@ -1,8 +1,0 @@
-[build]
-  publish = "dist/agrigistics_assignment/browser"
-  command = "npm run build"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
