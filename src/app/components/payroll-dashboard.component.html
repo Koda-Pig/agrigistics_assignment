@@ -1,0 +1,201 @@
+<div class="payroll-dashboard">
+  <!-- Left Navigation Panel -->
+  <nav class="navigation-panel">
+    <div class="logo">
+      <div class="logo-icon">
+        <!-- Simple logo placeholder - we'll style this to match the design -->
+        <span>🌾</span>
+      </div>
+    </div>
+    <ul class="nav-items">
+      @for (item of navigationItems(); track item.id) {
+        <li class="nav-item" [class.active]="item.active">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">{{ item.label }}</span>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <button class="back-button">←</button>
+        <div class="employee-info">
+          <h1 class="employee-name">{{ employee().name }}</h1>
+          <div class="employee-details">
+            <span class="employee-number"
+              >No. {{ employee().employeeNumber }}</span
+            >
+            <span class="employee-team">{{ employee().team }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            class="search-input"
+            [(ngModel)]="searchTerm"
+            (input)="onSearchChange()"
+          />
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-primary">Primary</button>
+      </div>
+    </header>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Employee Information Panel (Left) -->
+      <aside class="employee-panel">
+        <h2 class="panel-title">Overview</h2>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+          <div class="summary-card earnings">
+            <div class="card-icon">📈</div>
+            <div class="card-content">
+              <span class="card-label">Total Earnings</span>
+              <span class="card-amount">{{
+                formatCurrency(summary().totalEarnings)
+              }}</span>
+            </div>
+          </div>
+
+          <div class="summary-card deductions">
+            <div class="card-icon">📉</div>
+            <div class="card-content">
+              <span class="card-label">Total Deductions</span>
+              <span class="card-amount">{{
+                formatCurrency(summary().totalDeductions)
+              }}</span>
+            </div>
+          </div>
+
+          <div class="summary-card net">
+            <div class="card-icon">🏦</div>
+            <div class="card-content">
+              <span class="card-label">Net total</span>
+              <span class="card-amount">{{
+                formatCurrency(summary().netTotal)
+              }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Deductions -->
+        <div class="deductions-detail">
+          <h3 class="deductions-title">Detailed Deductions</h3>
+
+          <div class="deduction-item">
+            <div class="deduction-icon">📄</div>
+            <span class="deduction-label">UIF</span>
+            <span class="deduction-amount">{{
+              formatCurrency(summary().uif)
+            }}</span>
+          </div>
+
+          <div class="deduction-item">
+            <div class="deduction-icon">💳</div>
+            <span class="deduction-label">PAYE</span>
+            <span class="deduction-amount">{{
+              formatCurrency(summary().paye)
+            }}</span>
+          </div>
+
+          <div class="deduction-item">
+            <div class="deduction-icon">🧮</div>
+            <span class="deduction-label">Total</span>
+            <span class="deduction-amount">{{
+              formatCurrency(summary().total)
+            }}</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Data Table (Right) - HIGHEST PRIORITY -->
+      <section class="data-table-section">
+        <div class="table-container">
+          <table class="earnings-table">
+            <thead>
+              <tr>
+                <th class="sortable" (click)="onSort('name')">
+                  Name
+                  @if (getSortState().column === 'name') {
+                    <span class="sort-icon">{{
+                      getSortState().direction === 'asc' ? '↓' : '↑'
+                    }}</span>
+                  }
+                </th>
+                <th>Description</th>
+                <th>Type</th>
+                <th class="sortable" (click)="onSort('quantity')">
+                  Quantity
+                  @if (getSortState().column === 'quantity') {
+                    <span class="sort-icon">{{
+                      getSortState().direction === 'asc' ? '↓' : '↑'
+                    }}</span>
+                  }
+                </th>
+                <th class="sortable" (click)="onSort('rate')">
+                  Rate
+                  @if (getSortState().column === 'rate') {
+                    <span class="sort-icon">{{
+                      getSortState().direction === 'asc' ? '↓' : '↑'
+                    }}</span>
+                  }
+                </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (earning of earnings(); track earning.id) {
+                <tr class="table-row" [class.highlighted]="$first">
+                  <td class="name-cell">
+                    @if (earning.hasInfoIcon) {
+                      <span class="info-icon">⚠️</span>
+                    }
+                    {{ earning.name }}
+                  </td>
+                  <td class="description-cell">{{ earning.description }}</td>
+                  <td class="type-cell">{{ earning.type }}</td>
+                  <td class="quantity-cell">{{ earning.quantity }}</td>
+                  <td class="rate-cell">
+                    {{ formatCurrency(earning.rate) }}
+                    @if (earning.rate) {
+                      <span class="edit-icon">✏️</span>
+                    }
+                  </td>
+                  <td class="actions-cell">
+                    <a href="#" class="action-link">Primary Action</a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Right Secondary Actions Panel -->
+  <aside class="secondary-actions">
+    <div class="action-item">
+      <span class="action-icon">🎓</span>
+      <span class="action-label">Action 1</span>
+    </div>
+    <div class="action-item active">
+      <span class="action-icon">🎓</span>
+      <span class="action-label">Action 2</span>
+    </div>
+  </aside>
+</div>

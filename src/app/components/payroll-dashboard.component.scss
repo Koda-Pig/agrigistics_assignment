@@ -1,0 +1,454 @@
+// Payroll Dashboard Styles
+.payroll-dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  background-color: #f8fafc;
+}
+
+// Left Navigation Panel
+.navigation-panel {
+  width: 280px;
+  background-color: #1e40af; // Dark blue
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+  }
+
+  .nav-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        background-color: #3b82f6; // Light blue for active state
+      }
+
+      .nav-icon {
+        margin-right: 1rem;
+        font-size: 18px;
+      }
+
+      .nav-label {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Main Content Area
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header
+.header {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #64748b;
+    }
+
+    .employee-info {
+      .employee-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin: 0 0 0.25rem 0;
+      }
+
+      .employee-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+
+        .employee-number,
+        .employee-team {
+          font-size: 0.875rem;
+          color: #64748b;
+        }
+      }
+    }
+  }
+
+  .header-center {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+
+    .search-container {
+      position: relative;
+
+      .search-input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        background-color: #f9fafb;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          background-color: white;
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6b7280;
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    gap: 0.75rem;
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+
+      &.btn-secondary {
+        background-color: white;
+        color: #374151;
+        border: 1px solid #d1d5db;
+
+        &:hover {
+          background-color: #f9fafb;
+        }
+      }
+
+      &.btn-primary {
+        background-color: #3b82f6;
+        color: white;
+
+        &:hover {
+          background-color: #2563eb;
+        }
+      }
+    }
+  }
+}
+
+// Content Grid
+.content-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+// Employee Information Panel
+.employee-panel {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  .panel-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .summary-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .summary-card {
+      display: flex;
+      align-items: center;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      background-color: #f8fafc;
+
+      .card-icon {
+        font-size: 24px;
+        margin-right: 1rem;
+      }
+
+      .card-content {
+        display: flex;
+        flex-direction: column;
+
+        .card-label {
+          font-size: 0.875rem;
+          color: #64748b;
+          margin-bottom: 0.25rem;
+        }
+
+        .card-amount {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #1e293b;
+        }
+      }
+    }
+  }
+
+  .deductions-detail {
+    .deductions-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0 0 1rem 0;
+    }
+
+    .deduction-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f1f5f9;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .deduction-icon {
+        margin-right: 1rem;
+        font-size: 18px;
+      }
+
+      .deduction-label {
+        flex: 1;
+        font-weight: 500;
+        color: #374151;
+      }
+
+      .deduction-amount {
+        font-weight: 700;
+        color: #1e293b;
+      }
+    }
+  }
+}
+
+// Data Table Section
+.data-table-section {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  .table-container {
+    overflow-x: auto;
+
+    .earnings-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        th {
+          text-align: left;
+          padding: 1rem 0.75rem;
+          font-weight: 600;
+          color: #374151;
+          border-bottom: 1px solid #e5e7eb;
+          font-size: 0.875rem;
+
+          &.sortable {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+
+            &:hover {
+              background-color: #f9fafb;
+            }
+
+            .sort-icon {
+              margin-left: 0.5rem;
+              color: #3b82f6;
+            }
+          }
+        }
+      }
+
+      tbody {
+        .table-row {
+          border-bottom: 1px solid #f3f4f6;
+
+          &:hover {
+            background-color: #f9fafb;
+          }
+
+          &.highlighted {
+            background-color: #f3f4f6;
+          }
+
+          td {
+            padding: 1rem 0.75rem;
+            font-size: 0.875rem;
+            color: #374151;
+
+            .name-cell {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              .info-icon {
+                font-size: 16px;
+                color: #f59e0b;
+              }
+            }
+
+            .rate-cell {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              .edit-icon {
+                font-size: 14px;
+                color: #6b7280;
+                cursor: pointer;
+              }
+            }
+
+            .actions-cell {
+              .action-link {
+                color: #3b82f6;
+                text-decoration: none;
+                font-weight: 500;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Right Secondary Actions Panel
+.secondary-actions {
+  width: 200px;
+  background: white;
+  padding: 1.5rem 0;
+  border-left: 1px solid #e2e8f0;
+
+  .action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+
+    &.active {
+      background-color: #eff6ff;
+      color: #3b82f6;
+    }
+
+    .action-icon {
+      font-size: 24px;
+      margin-bottom: 0.5rem;
+    }
+
+    .action-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .secondary-actions {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation-panel {
+    width: 200px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+
+    .header-center {
+      margin: 0;
+      max-width: none;
+    }
+
+    .header-right {
+      justify-content: center;
+    }
+  }
+}
