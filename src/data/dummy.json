@@ -1,0 +1,123 @@
+{
+  "employee": {
+    "id": "E008",
+    "name": "Hannah Smoterich-Barr",
+    "employeeNumber": "E008",
+    "team": "General worker",
+    "profileImage": null
+  },
+  "summary": {
+    "totalEarnings": 13140.68,
+    "totalDeductions": 12000.0,
+    "netTotal": 1140.68,
+    "uif": 35.32,
+    "paye": 0.0,
+    "total": 35.32
+  },
+  "earnings": [
+    {
+      "id": 1,
+      "name": "Drafting",
+      "description": "Lorem ipsum dolor",
+      "type": "Group 1",
+      "quantity": 3,
+      "rate": 820.0,
+      "hasInfoIcon": true
+    },
+    {
+      "id": 2,
+      "name": "Driving",
+      "description": "--",
+      "type": "Group 1",
+      "quantity": 4,
+      "rate": null,
+      "hasInfoIcon": false
+    },
+    {
+      "id": 3,
+      "name": "Cutting",
+      "description": "--",
+      "type": "Group 2",
+      "quantity": 6,
+      "rate": null,
+      "hasInfoIcon": true
+    },
+    {
+      "id": 4,
+      "name": "Task 1",
+      "description": "Lorem ipsum dolor",
+      "type": "Group 3",
+      "quantity": 3,
+      "rate": 400.0,
+      "hasInfoIcon": false
+    },
+    {
+      "id": 5,
+      "name": "Task 2",
+      "description": "-",
+      "type": "Group 2",
+      "quantity": 4,
+      "rate": 599.0,
+      "hasInfoIcon": false
+    },
+    {
+      "id": 6,
+      "name": "Task 3",
+      "description": "Lorem ipsum dolor",
+      "type": "Group 3",
+      "quantity": 6,
+      "rate": 60.0,
+      "hasInfoIcon": false
+    },
+    {
+      "id": 7,
+      "name": "Task 4",
+      "description": "Lorem ipsum dolor",
+      "type": "Group 2",
+      "quantity": 3,
+      "rate": 80.0,
+      "hasInfoIcon": true
+    },
+    {
+      "id": 8,
+      "name": "Task 5",
+      "description": "Lorem ipsum dolor",
+      "type": "Group 1",
+      "quantity": 4,
+      "rate": 100.0,
+      "hasInfoIcon": false
+    }
+  ],
+  "navigationItems": [
+    {
+      "id": 1,
+      "label": "Item 1",
+      "icon": "home",
+      "active": false
+    },
+    {
+      "id": 2,
+      "label": "Item 2",
+      "icon": "home",
+      "active": false
+    },
+    {
+      "id": 3,
+      "label": "Item 3",
+      "icon": "home",
+      "active": false
+    },
+    {
+      "id": 4,
+      "label": "Item 4",
+      "icon": "home",
+      "active": false
+    },
+    {
+      "id": 5,
+      "label": "Item 5",
+      "icon": "home",
+      "active": true
+    }
+  ]
+}
