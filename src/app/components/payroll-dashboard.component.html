@@ -22,44 +22,22 @@
 
   <!-- Main Content Area -->
   <main class="main-content">
-    <!-- Header -->
-    <header class="header">
-      <div class="header-left">
-        <button class="back-button">←</button>
-        <div class="employee-info">
-          <h1 class="employee-name">{{ employee().name }}</h1>
-          <div class="employee-details">
-            <span class="employee-number"
-              >No. {{ employee().employeeNumber }}</span
-            >
-            <span class="employee-team">{{ employee().team }}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="header-center">
-        <div class="search-container">
-          <input
-            type="text"
-            placeholder="Search"
-            class="search-input"
-            [(ngModel)]="searchTerm"
-            (input)="onSearchChange()"
-          />
-          <span class="search-icon">🔍</span>
-        </div>
-      </div>
-
-      <div class="header-right">
-        <button class="btn btn-secondary">Secondary</button>
-        <button class="btn btn-primary">Primary</button>
-      </div>
-    </header>
-
     <!-- Content Grid -->
     <div class="content-grid">
       <!-- Employee Information Panel (Left) -->
       <aside class="employee-panel">
+        <div class="header-left">
+          <button class="back-button">←</button>
+          <div class="employee-info">
+            <h1 class="employee-name">{{ employee().name }}</h1>
+            <div class="employee-details">
+              <span class="employee-number"
+                >No. {{ employee().employeeNumber }}</span
+              >
+              <span class="employee-team">{{ employee().team }}</span>
+            </div>
+          </div>
+        </div>
         <h2 class="panel-title">Overview</h2>
 
         <!-- Summary Cards -->
@@ -127,6 +105,25 @@
 
       <!-- Data Table (Right) - HIGHEST PRIORITY -->
       <section class="data-table-section">
+        <header class="header">
+          <div class="header-center">
+            <div class="search-container">
+              <input
+                type="text"
+                placeholder="Search"
+                class="search-input"
+                [(ngModel)]="searchTerm"
+                (input)="onSearchChange()"
+              />
+              <span class="search-icon">🔍</span>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-primary">Primary</button>
+          </div>
+        </header>
         <div class="table-container">
           <table class="earnings-table">
             <thead>
@@ -193,12 +190,16 @@
   <!-- Right Secondary Actions Panel -->
   <aside class="secondary-actions">
     <div class="action-item">
-      <span class="action-icon">🎓</span>
-      <span class="action-label">Action 1</span>
+      <button>
+        <mat-icon class="nav-icon">school</mat-icon>
+        <span class="action-label">Action 1</span>
+      </button>
     </div>
     <div class="action-item active">
-      <span class="action-icon">🎓</span>
-      <span class="action-label">Action 2</span>
+      <button>
+        <mat-icon class="nav-icon">school</mat-icon>
+        <span class="action-label">Action 2</span>
+      </button>
     </div>
   </aside>
 </div>
