@@ -1,3 +1,10 @@
+$section-border: 1px solid var(--gray-100);
+
+@mixin active-styles {
+  background-color: var(--blue-100);
+  color: var(--blue);
+}
+
 // Payroll Dashboard Styles
 .payroll-dashboard {
   display: flex;
@@ -8,14 +15,13 @@
     'Segoe UI',
     Roboto,
     sans-serif;
-  // background-color: #f8fafc;
 }
 
 // Left Navigation Panel
 .navigation-panel {
   background-color: white;
   color: var(--gray-600);
-  padding: 1.5rem 0;
+  border-right: $section-border;
 
   .logo {
     margin-inline: auto;
@@ -24,33 +30,54 @@
   }
 
   .nav-items {
-    border-top: 1px solid var(--gray-100);
+    border-top: $section-border;
     list-style: none;
-    padding: 0;
+    padding: 8px;
     margin: 0;
 
     .nav-item {
-      display: flex;
-      align-items: center;
-      padding: 1rem 2rem;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+      button {
+        display: grid;
+        place-items: center;
+        padding: 8px 16px;
+        border: none;
+        color: var(--gray-600);
+        background-color: transparent;
+        border-radius: 16px;
+        transition: background-color 0.15s;
+
+        .nav-icon {
+          width: 24px;
+          display: block;
+          height: auto;
+          transition: color 0.15s;
+        }
+
+        .nav-label {
+          font-weight: 500;
+          font-size: 10px;
+          text-align: center;
+        }
+
+        &:hover,
+        &:focus-visible {
+          background-color: var(--blue-100);
+          color: var(--blue-500);
+        }
+
+        &:active {
+          @include active-styles;
+        }
       }
 
       &.active {
-        background-color: #3b82f6; // Light blue for active state
-      }
-
-      .nav-icon {
-        margin-right: 1rem;
-        font-size: 18px;
-      }
-
-      .nav-label {
-        font-weight: 500;
+        button {
+          @include active-styles;
+        }
       }
     }
   }
@@ -151,7 +178,7 @@
       font-weight: 500;
       cursor: pointer;
       border: none;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
 
       &.btn-secondary {
         background-color: white;
@@ -383,7 +410,7 @@
     align-items: center;
     padding: 1.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.15s ease;
 
     &:hover {
       background-color: #f9fafb;

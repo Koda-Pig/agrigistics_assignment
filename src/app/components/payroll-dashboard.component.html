@@ -11,8 +11,10 @@
     <ul class="nav-items">
       @for (item of navigationItems(); track item.id) {
         <li class="nav-item" [class.active]="item.active">
-          <span class="nav-icon">🏠</span>
-          <span class="nav-label">{{ item.label }}</span>
+          <button>
+            <mat-icon class="nav-icon">home</mat-icon>
+            <span class="nav-label">{{ item.label }}</span>
+          </button>
         </li>
       }
     </ul>

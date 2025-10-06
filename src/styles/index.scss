@@ -6,6 +6,17 @@
 @use './reset.scss';
 @use '@angular/material' as mat;
 
+:root {
+  --gray-50: #eff3f5;
+  --gray-100: #e6e6e6;
+  --gray-600: #666;
+  --green: #a5c757;
+  --error-red: #ff3d00;
+  --blue: #166983;
+  --blue-100: #dfe5ec;
+  --blue-500: #617b9e;
+}
+
 html {
   @include mat.theme(
     (
@@ -19,41 +30,20 @@ html {
   );
 }
 
-body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
-  margin: 0;
-}
-
-:root {
-  --gray-50: #eff3f5;
-  --gray-100: #e6e6e6;
-  --gray-600: #666;
-  --green-secondary: #a5c757;
-  --error-red: #ff3d00;
-  --blue-primary: #166983;
-}
-
-body {
-  background-color: var(--gray-50);
-}
-
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
+  background-color: var(--gray-50);
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  color-scheme: light;
+
+  font: var(--mat-sys-body-medium);
+}
+
+// I prefer buttons having pointers.
+button:not(:disabled) {
+  cursor: pointer;
 }

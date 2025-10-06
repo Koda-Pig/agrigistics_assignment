@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PayrollDataService } from '../services/payroll-data.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-payroll-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatIconModule],
   templateUrl: './payroll-dashboard.component.html',
   styleUrls: ['./payroll-dashboard.component.scss'],
 })
