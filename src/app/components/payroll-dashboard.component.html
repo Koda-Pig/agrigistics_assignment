@@ -26,79 +26,101 @@
     <div class="content-grid">
       <!-- Employee Information Panel (Left) -->
       <aside class="employee-panel">
-        <div class="header-left">
-          <button class="back-button">←</button>
-          <div class="employee-info">
-            <h1 class="employee-name">{{ employee().name }}</h1>
-            <div class="employee-details">
-              <span class="employee-number"
-                >No. {{ employee().employeeNumber }}</span
-              >
-              <span class="employee-team">{{ employee().team }}</span>
-            </div>
+        <div class="title-section">
+          <button class="back-button">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <h1 class="employee-name">{{ employee().name }}</h1>
+        </div>
+
+        <div class="employee-info">
+          <div class="employee-number">
+            <p>No.</p>
+            <strong>
+              {{ employee().employeeNumber }}
+            </strong>
+          </div>
+          <div class="employee-team">
+            <p>Team</p>
+            <strong>
+              {{ employee().team }}
+            </strong>
           </div>
         </div>
+
+        <hr class="divider" />
+
         <h2 class="panel-title">Overview</h2>
 
         <!-- Summary Cards -->
         <div class="summary-cards">
           <div class="summary-card earnings">
-            <div class="card-icon">📈</div>
-            <div class="card-content">
-              <span class="card-label">Total Earnings</span>
-              <span class="card-amount">{{
-                formatCurrency(summary().totalEarnings)
-              }}</span>
+            <div class="card-icon card-icon--green">
+              <mat-icon>trending_up</mat-icon>
+            </div>
+            <div>
+              <p class="card-label">Total Earnings</p>
+              <p class="card-amount">
+                {{ formatCurrency(summary().totalEarnings) }}
+              </p>
             </div>
           </div>
 
           <div class="summary-card deductions">
-            <div class="card-icon">📉</div>
-            <div class="card-content">
-              <span class="card-label">Total Deductions</span>
-              <span class="card-amount">{{
-                formatCurrency(summary().totalDeductions)
-              }}</span>
+            <div class="card-icon card-icon--red">
+              <mat-icon>trending_down</mat-icon>
+            </div>
+            <div>
+              <p class="card-label">Total Deductions</p>
+              <p class="card-amount">
+                {{ formatCurrency(summary().totalDeductions) }}
+              </p>
             </div>
           </div>
 
           <div class="summary-card net">
-            <div class="card-icon">🏦</div>
-            <div class="card-content">
-              <span class="card-label">Net total</span>
-              <span class="card-amount">{{
-                formatCurrency(summary().netTotal)
-              }}</span>
+            <div class="card-icon card-icon--blue">
+              <mat-icon>account_balance</mat-icon>
+            </div>
+            <div>
+              <p class="card-label">Net total</p>
+              <p class="card-amount">
+                {{ formatCurrency(summary().netTotal) }}
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Detailed Deductions -->
-        <div class="deductions-detail">
-          <h3 class="deductions-title">Detailed Deductions</h3>
-
-          <div class="deduction-item">
-            <div class="deduction-icon">📄</div>
-            <span class="deduction-label">UIF</span>
-            <span class="deduction-amount">{{
-              formatCurrency(summary().uif)
-            }}</span>
+        <div class="summary-cards">
+          <div class="summary-card">
+            <div class="card-icon card-icon--secondary">
+              <mat-icon>description</mat-icon>
+            </div>
+            <div>
+              <p class="card-label">UIF</p>
+              <p class="card-amount">{{ formatCurrency(summary().uif) }}</p>
+            </div>
           </div>
-
-          <div class="deduction-item">
-            <div class="deduction-icon">💳</div>
-            <span class="deduction-label">PAYE</span>
-            <span class="deduction-amount">{{
-              formatCurrency(summary().paye)
-            }}</span>
+          <div class="summary-card">
+            <div class="card-icon card-icon--secondary">
+              <mat-icon>payments</mat-icon>
+            </div>
+            <div>
+              <p class="card-label">PAYE</p>
+              <p class="card-amount">{{ formatCurrency(summary().paye) }}</p>
+            </div>
           </div>
-
-          <div class="deduction-item">
-            <div class="deduction-icon">🧮</div>
-            <span class="deduction-label">Total</span>
-            <span class="deduction-amount">{{
-              formatCurrency(summary().total)
-            }}</span>
+          <div class="summary-card">
+            <div class="card-icon card-icon--secondary">
+              <mat-icon>point_of_sale</mat-icon>
+            </div>
+            <div>
+              <p class="card-label">Total</p>
+              <p class="card-amount">
+                {{ formatCurrency(summary().total) }}
+              </p>
+            </div>
           </div>
         </div>
       </aside>

@@ -143,6 +143,9 @@ export class PayrollDataService {
   // Helper method to format currency
   formatCurrency(amount: number | null): string {
     if (amount === null) return '--';
-    return `R ${amount.toFixed(2)}`;
+    return `R ${amount.toLocaleString('en-ZA', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
   }
 }
