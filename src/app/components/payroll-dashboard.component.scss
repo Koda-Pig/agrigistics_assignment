@@ -460,8 +460,9 @@ $section-border: 1px solid var(--gray-100);
 // Responsive Design
 @media (max-width: 1200px) {
   .content-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    // grid-template-columns: 1fr;
+    // gap: 1rem;
+    display: block;
   }
 }
 
